@@ -8,8 +8,7 @@ def clear():
 def run_cmd(cmd, title):
     # فتح نافذة جديدة لكل أداة لضمان عملها بشكل مستقل
     print(colored(f"[+] Starting {title} in a new window...", "green"))
-    os.system(f"qterminal -e 'bash -c \"{cmd}; echo; echo Press Enter to close this window...; read\"' &")
-
+   os.system(f"qterminal -e 'bash -c \"{cmd}; exec bash\"' &")
 def my_heart():
     clear()
     heart = ["      ** ** ", "   * * * * ", "  * ** * ", " * /\\ /\\ /\\  /\\ /\\ /\\  * ", " * \\/ \\/ \\/  \\/ \\/ \\/  * ", "  * /\\ /\\ /\\ /\\ /\\   * ", "   * \\/ \\/ \\/ \\/    * ", "    * \\/ \\/ \\/     * ", "      * \\/      * ", "        * * "]
@@ -84,3 +83,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
