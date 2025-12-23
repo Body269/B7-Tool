@@ -8,23 +8,34 @@ def clear():
     os.system('clear')
 
 def run_cmd(cmd, title):
-    # استخدام exec bash للتحكم التفاعلي الكامل
+    # السطر المعدل للتحكم الكامل
     print(colored(f"[+] Starting {title} in a new window...", "green"))
     os.system(f"qterminal -e 'bash -c \"{cmd}; exec bash\"' &")
 
 def matrix_effect():
+    # تأثير هكر واقعي: حروف وأطوال وسرعات عشوائية
     clear()
-    print(colored("[!] Press Ctrl+C to stop the Matrix...", "yellow"))
-    time.sleep(2)
-    colors = ['red', 'blue', 'green', 'white', 'magenta', 'cyan']
-    chars = "ABCDEFGHIKLMNOPQRSTUVWXYZ1234567890@#$%^&*()_+"
+    print(colored("[!] SYSTEM BREACH IN PROGRESS... Press Ctrl+C to abort", "red", attrs=['bold']))
+    time.sleep(1.5)
+    
+    colors = ['green', 'green', 'cyan', 'white', 'red', 'blue']
+    chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()+-={}[]|;:,.<>?"
+    
     try:
         while True:
-            line = "".join(random.choice(chars) for _ in range(80))
-            print(colored(line, random.choice(colors)))
-            time.sleep(0.01)
+            # عشوائية في طول السطر وكمية الفراغات لتبدو واقعية
+            length = random.randint(20, 100)
+            line = "".join(random.choice(chars) for _ in range(length))
+            
+            # اختيار لون عشوائي مع غلبة للأخضر
+            color = random.choice(colors)
+            
+            # طباعة السطر مع سرعة عشوائية جداً
+            print(colored(line.center(100), color))
+            time.sleep(random.uniform(0.01, 0.1))
+            
     except KeyboardInterrupt:
-        print(colored("\n[!] Matrix Stopped.", "yellow"))
+        print(colored("\n[!] ACCESS TERMINATED BY USER.", "yellow"))
         time.sleep(1)
 
 def my_heart():
@@ -38,8 +49,8 @@ def my_heart():
 
 def banner():
     print(colored("          👑 Body 👑", "red"))
-    print(colored("    --- [ B7 MONSTER APOCALYPSE - v11.1 ] ---", "cyan"))
-    print(colored("    --- [ 50+ TOOLS: ULTIMATE ALL-IN-ONE MENU ] ---", "white"))
+    print(colored("    --- [ B7 MONSTER APOCALYPSE - v11.2 ] ---", "cyan"))
+    print(colored("    --- [ 50+ TOOLS: THE REAL HACKER EXPERIENCE ] ---", "white"))
 
 def menu():
     print(colored("\n--- [ 📶 WiFi Warfare ] ---", "blue"))
@@ -68,7 +79,7 @@ def menu():
     print("[43] Crunch (Wordlist) [44] Cupp (Custom)     [45] Medusa")
 
     print(colored("\n--- [ 🔒 Privacy & Fun ] ---", "yellow"))
-    print("[46] Enable Tor Mode   [47] ⚡ Matrix Rain     [48] ❤️ My Heart")
+    print("[46] Enable Tor Mode   [47] ⚡ Real Hacker Matrix [48] ❤️ My Heart")
     print("[0] Exit")
 
 def main():
@@ -78,21 +89,18 @@ def main():
         menu()
         choice = input(colored("\nB7-Monster > ", "cyan"))
 
-        # منطق التشغيل لجميع الأدوات
         tools = {
             '1': ("sudo wifite", "Wifite"), '2': ("sudo airgeddon", "Airgeddon"), '3': ("sudo fluxion", "Fluxion"),
             '10': ("sudo adb devices", "ADB-Check"), '11': ("ghost-framework", "Ghost"), '12': ("ahmyth", "Ahmyth"),
-            '14': ("sudo bettercap", "Bettercap"), '19': ("sqlmap", "SQLMap"), '21': ("commix", "Commix"),
-            '22': ("wpscan", "WPScan"), '23': ("nikto", "Nikto"), '24': ("dirb", "Dirb"),
+            '19': ("sqlmap", "SQLMap"), '21': ("commix", "Commix"), '22': ("wpscan", "WPScan"),
             '31': ("sudo set", "SET"), '33': ("sherlock", "Sherlock"), '40': ("john", "John"),
-            '41': ("hydra", "Hydra"), '42': ("hashcat", "Hashcat"), '47': ("matrix", "Matrix")
+            '41': ("hydra", "Hydra"), '42': ("hashcat", "Hashcat")
         }
 
-        if choice in tools:
-            if choice == '47':
-                matrix_effect()
-            else:
-                run_cmd(tools[choice][0], tools[choice][1])
+        if choice == '47':
+            matrix_effect()
+        elif choice in tools:
+            run_cmd(tools[choice][0], tools[choice][1])
         elif choice == '46':
             os.system("sudo service tor restart"); print(colored("[+] Tor Active!", "green")); time.sleep(2)
         elif choice == '48':
@@ -100,7 +108,7 @@ def main():
         elif choice == '0':
             break
         else:
-            print(colored("[!] Tool logic starts in a new terminal...", "yellow")); time.sleep(1)
+            print(colored("[!] Starting tool or invalid choice...", "yellow")); time.sleep(1)
 
 if __name__ == "__main__":
     main()
