@@ -48,8 +48,18 @@ def my_heart():
     input(colored("\n\nPress Enter to return...", "white"))
 
 def banner():
-    print(colored("          👑 Body 👑", "red"))
-    print(colored("    --- [ B7 MONSTER APOCALYPSE - v11.2 ] ---", "cyan"))
+    # كلمة B7 كبيرة واحترافية
+    b7_logo = """
+    ██████╗ ███████╗
+    ██╔══██╗╚════██║
+    ██████╔╝    ██╔╝
+    ██╔══██╗   ██╔╝ 
+    ██████╔╝   ██║  
+    ╚═════╝    ╚═╝  
+    """
+    print(colored(b7_logo, "red", attrs=['bold']))
+    print(colored("          👑 Body 👑", "yellow"))
+    print(colored("    --- [ B7 MONSTER APOCALYPSE - v11.3 ] ---", "cyan"))
     print(colored("    --- [ 50+ TOOLS: THE REAL HACKER EXPERIENCE ] ---", "white"))
 
 def menu():
